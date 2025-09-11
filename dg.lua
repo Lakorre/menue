@@ -187,24 +187,20 @@ end
 
 
 -- Menu Builder
-local MenuSize = vec2(750, 500)
-local MenuStartCoords = vec2(500, 500)
+local MenuSize = vec2(850, 600) -- زودنا العرض والارتفاع شوي
+local MenuStartCoords = vec2(400, 300) -- نقلنا المكان شوي ليتناسب
 
-local TabsBarWidth = 150
+local TabsBarWidth = 180 -- خله أعرض شوي علشان أسماء التابات الطويلة
 local SectionsPadding = 10
 local MachoPanelGap = 15
 
-local SectionChildWidth = MenuSize.x - TabsBarWidth
+local SectionChildWidth = MenuSize.x - TabsBarWidth - SectionsPadding
 local SectionChildHeight = MenuSize.y - (2 * SectionsPadding)
 
 local ColumnWidth = (SectionChildWidth - (SectionsPadding * 3)) / 2
 local HalfHeight = (SectionChildHeight - (SectionsPadding * 3)) / 2
 
-local MenuWindow = MachoMenuTabbedWindow("Fodo", MenuStartCoords.x, MenuStartCoords.y, MenuSize.x, MenuSize.y, TabsBarWidth)
 MachoMenuSetKeybind(MenuWindow, 0x14)
-MachoMenuSetAccent(MenuWindow, 52, 137, 235)
-
-MachoMenuText(MenuWindow, "discord.gg/gamerware")
 
 -- local function CreateRainbowInterface()
 --     CreateThread(function()
@@ -221,15 +217,19 @@ MachoMenuText(MenuWindow, "discord.gg/gamerware")
 -- end
 
 -- CreateRainbowInterface()
-
+MachoMenuText(MenuWindow, "Self & Server")
 local PlayerTab = MachoMenuAddTab(MenuWindow, "Self")
 local ServerTab = MachoMenuAddTab(MenuWindow, "Server")
-local TeleportTab = MachoMenuAddTab(MenuWindow, "Teleport")
-local WeaponTab = MachoMenuAddTab(MenuWindow, "Weapon")
+MachoMenuText(MenuWindow, "Teleport & Vehicle")
 local VehicleTab = MachoMenuAddTab(MenuWindow, "Vehicle")
+local WeaponTab = MachoMenuAddTab(MenuWindow, "Teleport")
+MachoMenuText(MenuWindow, "Weapon & Animations")
 local EmoteTab = MachoMenuAddTab(MenuWindow, "Animations")
+local WeaponTab = MachoMenuAddTab(MenuWindow, "Weapon")
+MachoMenuText(MenuWindow, "Triggers & Settings+tx ")
 local EventTab = MachoMenuAddTab(MenuWindow, "Triggers")
-local SettingTab = MachoMenuAddTab(MenuWindow, "Settings")
+local SettingTab = MachoMenuAddTab(MenuWindow, "Settings+tx")
+MachoMenuText(MenuWindow, "Vip ")
 local VIPTab = MachoMenuAddTab(MenuWindow, "VIP")
 
 -- Tab Content
@@ -5851,3 +5851,4 @@ MachoMenuButton(SettingTabSections[3], "Framework Checker", function()
     local frameworkName = DetectFramework()
     notify("Framework: %s", frameworkName)
 end)
+
