@@ -1,15 +1,15 @@
 -- =========================================================
--- FODO client — Macho-bound auth ENFORCED (no manual typing)
--- Back-end: /FodoAuthMacho?macho=<MACHO>&version=<VER>
+-- client — Macho-bound auth ENFORCED (no manual typing)
+-- Back-end: /AuthMacho?macho=<MACHO>&version=<VER>
 -- Requires you redeem in Discord with: /redeem key:XXXX macho:<MACHO_KEY>
 -- =========================================================
 
 -- Public gates you can use anywhere
--- FODO_AUTH_OK    = false     -- becomes true only on successful auth
--- FODO_AUTH_READY = false     -- becomes true once we have a final result (success or failure)
--- FODO_VIP        = false     -- set by server; shows whether this Macho has VIP
--- function FODO_IsAuthed() return FODO_AUTH_OK end
--- function FODO_HasVIP()   return FODO_VIP    end
+-- _AUTH_OK    = false     -- becomes true only on successful auth
+-- _AUTH_READY = false     -- becomes true once we have a final result (success or failure)
+-- _VIP        = false     -- set by server; shows whether this Macho has VIP
+-- function _IsAuthed() return FODO_AUTH_OK end
+-- function _HasVIP()   return FODO_VIP    end
 
 -- ===== helpers =====
 local function urlencode(str)
@@ -61,7 +61,7 @@ local function FODO_WaitForAuth(timeout_ms)
         if GetGameTimer() - t0 >= (timeout_ms or 8000) then break end
         Wait(0)
     end
-    return FODO_AUTH_OK
+    return _AUTH_O
 end
 
 -- ===== Auth thread (runs immediately on load) =====
@@ -5851,4 +5851,5 @@ MachoMenuButton(SettingTabSections[3], "Framework Checker", function()
     local frameworkName = DetectFramework()
     notify("Framework: %s", frameworkName)
 end)
+
 
