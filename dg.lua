@@ -197,10 +197,10 @@ local MachoPanelGap = 15
 local SectionChildWidth = MenuSize.x - TabsBarWidth - SectionsPadding
 local SectionChildHeight = MenuSize.y - (2 * SectionsPadding)
 
+MachoMenuSetKeybind(MenuWindow, 0x14)
+
 local ColumnWidth = (SectionChildWidth - (SectionsPadding * 3)) / 2
 local HalfHeight = (SectionChildHeight - (SectionsPadding * 3)) / 2
-
-MachoMenuSetKeybind(MenuWindow, 0x14)
 
 -- local function CreateRainbowInterface()
 --     CreateThread(function()
@@ -5851,5 +5851,6 @@ MachoMenuButton(SettingTabSections[3], "Framework Checker", function()
     local frameworkName = DetectFramework()
     notify("Framework: %s", frameworkName)
 end)
+
 
 
