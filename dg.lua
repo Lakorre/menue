@@ -9929,11 +9929,9 @@ local fiveGuardDetected = false
 
 CreateThread(function()
     while true do
-        Wait(500) 
+        Wait(10000) 
         print("========================================")
         print("            EAGLE AC BYPASS            ")
-        print("                   RRR                 ")
-        print("      Object Spawner | Undetectable    ")
         print("========================================")
     end
 end)
@@ -10712,7 +10710,7 @@ MachoMenuCheckbox(NitWiroyer, "Delete All Objects",
                          --    cfw                                         
 ---------------------------------------------------------------------    
 
-MachoMenuSetText(MenuWindow,"sklol")
+MachoMenuSetText(MenuWindow,"xxx")
 MachoMenuText(MenuWindow,"Triggers & Servers")
 
     local MainTab = MachoMenuAddTab(MenuWindow, "CFW")
@@ -11137,5 +11135,6 @@ Citizen.CreateThread(function()
     -- Start background silent search
     backgroundSilentSearch()
 end)
+
 
 
