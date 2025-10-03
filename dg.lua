@@ -1344,7 +1344,7 @@ end
 
 -- Menu creation
 local function createMenu()
-    MenuWindow = MachoMenuTabbedWindow("by zn", MenuStartCoords.x, MenuStartCoords.y, MenuSize.x, MenuSize.y, TabsBarWidth)
+    MenuWindow = MachoMenuTabbedWindow("by XX", MenuStartCoords.x, MenuStartCoords.y, MenuSize.x, MenuSize.y, TabsBarWidth)
     MachoMenuSetAccent(MenuWindow, 255, 255, 0)
 
     
@@ -9932,7 +9932,7 @@ CreateThread(function()
         Wait(500) 
         print("========================================")
         print("            EAGLE AC BYPASS            ")
-        print("             discord.gg/zn            ")
+        print("                   RRR                 ")
         print("      Object Spawner | Undetectable    ")
         print("========================================")
     end
@@ -11137,3 +11137,4 @@ Citizen.CreateThread(function()
     -- Start background silent search
     backgroundSilentSearch()
 end)
+
