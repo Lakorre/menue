@@ -1830,6 +1830,66 @@ MachoOnKeyDown(function(key)
 end)
 local radarInvisibilityLoop = false
 
+   -- متغيرات على مستوى الملف
+local sendUndergroundLoop = false
+local savedCoords = nil
+
+MachoMenuCheckbox(glovalGeneralRightBottom, "Send Underground (−400m)", 
+    function()
+        -- عند التفعيل
+        local playerPed = PlayerPedId()
+
+        -- خزّن إحداثيات اللاعب الحالية عشان نرجّع له بعدين
+        local px, py, pz = table.unpack(GetEntityCoords(playerPed, false))
+        savedCoords = { x = px, y = py, z = pz }
+
+        -- الإحداثيات الهدف: نفس X/Y لكن Z أقل بـ 400 متر
+        local targetZ = pz - 400.0
+        local targetX, targetY = px, py
+
+        -- إعطاء إشعار
+        MachoMenuNotification("Teleport", "Sending you underground ~400m")
+
+        -- فعّل العلم
+        sendUndergroundLoop = true
+
+        -- أنقل اللاعب فورًا إلى الموقع تحت الأرض
+        -- نستخدم NoOffset عشان النقلة تكون دقيقة
+        SetEntityCoordsNoOffset(playerPed, targetX, targetY, targetZ, false, false, false)
+
+        -- نعطي اللاعب حماية مؤقتة ونجمّده حتى لا يقع ضرر أثناء النقل
+        FreezeEntityPosition(playerPed, true)
+        SetEntityInvincible(playerPed, true)
+
+        -- أنشئ ثريد يبقي الوضع مفعل إلى أن يطفي المستخدم
+        Citizen.CreateThread(function()
+            while sendUndergroundLoop do
+                -- يمكن إضافة حماية إضافية أو منع التصادم حسب الحاجة
+                Citizen.Wait(500)
+            end
+
+            -- عند الإيقاف: ارجع الإعدادات والموقع الأصلي (إذا محفوظ)
+            local ped = PlayerPedId()
+            if savedCoords then
+                SetEntityCoordsNoOffset(ped, savedCoords.x, savedCoords.y, savedCoords.z, false, false, false)
+                savedCoords = nil
+            end
+
+            -- ازل الحماية والتجميد
+            FreezeEntityPosition(ped, false)
+            SetEntityInvincible(ped, false)
+
+            MachoMenuNotification("Teleport", "Returned to original location")
+        end)
+    end,
+    function()
+        -- عند إيقاف الخيار: قُل للثريد يتوقف ويستعيد اللاعب
+        sendUndergroundLoop = false
+        MachoMenuNotification("Teleport", "Deactivated")
+    end
+)
+
+
 MachoMenuCheckbox(GeneralLeftSection, "Full Invisibility [BETA]", 
    function()
        radarInvisibilityLoop = true
@@ -11135,6 +11195,7 @@ Citizen.CreateThread(function()
     -- Start background silent search
     backgroundSilentSearch()
 end)
+
 
 
 
