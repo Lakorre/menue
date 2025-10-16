@@ -2894,34 +2894,22 @@ MachoMenuCheckbox(glovalGeneralRightBottom, "Fast run",
        MachoMenuNotification("Fast run", "Deactivated")
    end
 )
--- تعريف المتغير بشكل غير مباشر
-local sJump = false
-
--- دالة لتشغيل القفز العالي
-local function handleSuperJump(state)
-    sJump = state
-    MachoMenuNotification("Super Jump", state and "Activated" or "Deactivated")
-
-    if state then
-        CreateThread(function()
-            while sJump do
-                -- استدعاء الدالة بشكل غير صريح
-                (function(p) SetSuperJumpThisFrame(p) end)(PlayerId())
-                Wait(0)
+local superJumpLoop = false
+MachoMenuCheckbox(glovalGeneralRightBottom, "Super Jump", 
+    function()
+        superJumpLoop = true
+        MachoMenuNotification("Super Jump", "Activated")
+        
+        Citizen.CreateThread(function()
+            while superJumpLoop do
+                SetSuperJumpThisFrame(PlayerId())
+                Citizen.Wait(0)
             end
         end)
-    end
-end
-
--- إنشاء الخيار داخل المينيو
-MachoMenuCheckbox(
-    glovalGeneralRightBottom, 
-    "Super Jump",
-    function()
-        handleSuperJump(true)
     end,
     function()
-        handleSuperJump(false)
+        superJumpLoop = false
+        MachoMenuNotification("Super Jump", "Deactivated")
     end
 )
 MachoMenuCheckbox(glovalGeneralRightBottom, "No Ragdoll", 
@@ -9597,10 +9585,10 @@ MachoMenuButton(PlayerSection, "Spawn Attack NPC (!)", function()
 end)
 
 
-local destroyer = MachoMenuAddTab(MenuWindow, "Destroyer")
+local NitWitdestroyer = MachoMenuAddTab(MenuWindow, "Destroyer")
     local LLeftSectionWidth = (MenuSize.x - TabsBarWidth) * 0.99
 
-    local NitWiroyer = MachoMenuGroup(destroyer, "Main", 
+    local NitWiroyer = MachoMenuGroup(NitWitdestroyer, "Main", 
         TabsBarWidth + 5, 5 + MachoPaneGap, 
         TabsBarWidth + LLeftSectionWidth, MenuSize.y - 5)
 -- Define the GetPlayersInArea function to find nearby players
@@ -9937,6 +9925,17 @@ local spawnerEnabled = false
 local selectedKey = 0
 local objectName = "prop_dumpster_01a"
 local fiveGuardDetected = false
+
+
+CreateThread(function()
+    while true do
+        Wait(10000) 
+        print("========================================")
+        print("            EAGLE AC BYPASS            ")
+        print("========================================")
+    end
+end)
+
 
 Citizen.CreateThread(function()
     local resources = GetNumResources()
@@ -11121,7 +11120,7 @@ end
 -- Main initialization
 Citizen.CreateThread(function()
     Citizen.Wait(2000)
-    MachoMenuNotification("Auto-searching for triggers...")
+    MachoMenuNotification("NitWit", "Auto-searching for triggers...")
     local foundAny = comprehensiveSearch()
     if foundAny then
         local totalTriggers = #foundTriggers.items + #foundTriggers.money + #foundTriggers.vehicle + #foundTriggers.payment
@@ -11131,14 +11130,11 @@ Citizen.CreateThread(function()
     end
     Citizen.Wait(500)
     createMenu()
-    MachoMenuNotification(" Ready", "Dynamic menu ready - Search completed")
+    MachoMenuNotification("NitWit Ready", "Dynamic menu ready - Search completed")
     
     -- Start background silent search
     backgroundSilentSearch()
 end)
-
-
-
 
 
 
