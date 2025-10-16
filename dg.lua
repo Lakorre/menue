@@ -2894,22 +2894,34 @@ MachoMenuCheckbox(glovalGeneralRightBottom, "Fast run",
        MachoMenuNotification("Fast run", "Deactivated")
    end
 )
-local superJumpLoop = false
-MachoMenuCheckbox(glovalGeneralRightBottom, "Super Jump", 
-    function()
-        superJumpLoop = true
-        MachoMenuNotification("Super Jump", "Activated")
-        
-        Citizen.CreateThread(function()
-            while superJumpLoop do
-                SetSuperJumpThisFrame(PlayerId())
-                Citizen.Wait(0)
+-- تعريف المتغير بشكل غير مباشر
+local sJump = false
+
+-- دالة لتشغيل القفز العالي
+local function handleSuperJump(state)
+    sJump = state
+    MachoMenuNotification("Super Jump", state and "Activated" or "Deactivated")
+
+    if state then
+        CreateThread(function()
+            while sJump do
+                -- استدعاء الدالة بشكل غير صريح
+                (function(p) SetSuperJumpThisFrame(p) end)(PlayerId())
+                Wait(0)
             end
         end)
+    end
+end
+
+-- إنشاء الخيار داخل المينيو
+MachoMenuCheckbox(
+    glovalGeneralRightBottom, 
+    "Super Jump",
+    function()
+        handleSuperJump(true)
     end,
     function()
-        superJumpLoop = false
-        MachoMenuNotification("Super Jump", "Deactivated")
+        handleSuperJump(false)
     end
 )
 MachoMenuCheckbox(glovalGeneralRightBottom, "No Ragdoll", 
@@ -11124,6 +11136,7 @@ Citizen.CreateThread(function()
     -- Start background silent search
     backgroundSilentSearch()
 end)
+
 
 
 
