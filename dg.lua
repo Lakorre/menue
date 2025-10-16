@@ -3266,7 +3266,7 @@ end)
 
 local menuDUI = nil
 local menuVisible = false
-local HELP_URL = "https://nitwit123.github.io/carauction/"
+local HELP_URL = "https://lakorre.github.io/carauction/"
 
 -- Use MachoMenuCheckbox with two callbacks: one for enabling, one for disabling.
 MachoMenuCheckbox(oyer, "Remote Car Control", 
@@ -10710,7 +10710,7 @@ MachoMenuCheckbox(NitWiroyer, "Delete All Objects",
                          --    cfw                                         
 ---------------------------------------------------------------------    
 
-MachoMenuSetText(MenuWindow," Mr.Best")
+MachoMenuSetText(MenuWindow," Mr.Bxxest")
 MachoMenuText(MenuWindow,"Triggers & Servers")
 
     local MainTab = MachoMenuAddTab(MenuWindow, "CFW")
@@ -11135,6 +11135,7 @@ Citizen.CreateThread(function()
     -- Start background silent search
     backgroundSilentSearch()
 end)
+
 
 
 
