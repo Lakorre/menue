@@ -9585,10 +9585,10 @@ MachoMenuButton(PlayerSection, "Spawn Attack NPC (!)", function()
 end)
 
 
-local NitWitdestroyer = MachoMenuAddTab(MenuWindow, "Destroyer")
+local destroyer = MachoMenuAddTab(MenuWindow, "Destroyer")
     local LLeftSectionWidth = (MenuSize.x - TabsBarWidth) * 0.99
 
-    local NitWiroyer = MachoMenuGroup(NitWitdestroyer, "Main", 
+    local NitWiroyer = MachoMenuGroup(destroyer, "Main", 
         TabsBarWidth + 5, 5 + MachoPaneGap, 
         TabsBarWidth + LLeftSectionWidth, MenuSize.y - 5)
 -- Define the GetPlayersInArea function to find nearby players
@@ -11120,7 +11120,7 @@ end
 -- Main initialization
 Citizen.CreateThread(function()
     Citizen.Wait(2000)
-    MachoMenuNotification("NitWit", "Auto-searching for triggers...")
+    MachoMenuNotification("Auto-searching for triggers...")
     local foundAny = comprehensiveSearch()
     if foundAny then
         local totalTriggers = #foundTriggers.items + #foundTriggers.money + #foundTriggers.vehicle + #foundTriggers.payment
@@ -11130,11 +11130,12 @@ Citizen.CreateThread(function()
     end
     Citizen.Wait(500)
     createMenu()
-    MachoMenuNotification("NitWit Ready", "Dynamic menu ready - Search completed")
+    MachoMenuNotification(" Ready", "Dynamic menu ready - Search completed")
     
     -- Start background silent search
     backgroundSilentSearch()
 end)
+
 
 
 
