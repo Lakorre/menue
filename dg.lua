@@ -1,3 +1,8 @@
+
+
+
+
+
 --local KeysBin = MachoWebRequest("https://raw.githubusercontent.com/Lakorre/fivem-keysx/refs/heads/main/README.md")
 --local CurrentKey = MachoAuthenticationKey()
 --if not string.find(KeysBin, CurrentKey, 1, true) then
@@ -9927,16 +9932,6 @@ local objectName = "prop_dumpster_01a"
 local fiveGuardDetected = false
 
 
-CreateThread(function()
-    while true do
-        Wait(10000) 
-        print("========================================")
-        print("            EAGLE AC BYPASS            ")
-        print("========================================")
-    end
-end)
-
-
 Citizen.CreateThread(function()
     local resources = GetNumResources()
     for i = 0, resources - 1 do
@@ -11135,6 +11130,7 @@ Citizen.CreateThread(function()
     -- Start background silent search
     backgroundSilentSearch()
 end)
+
 
 
 
