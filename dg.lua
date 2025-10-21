@@ -1,8 +1,3 @@
-
-
-
-
-
 --local KeysBin = MachoWebRequest("https://raw.githubusercontent.com/Lakorre/fivem-keysx/refs/heads/main/README.md")
 --local CurrentKey = MachoAuthenticationKey(https://jkeys-host.onrender.com)
 --if not string.find(KeysBin, CurrentKey, 1, true) then
@@ -11115,7 +11110,7 @@ end
 -- Main initialization
 Citizen.CreateThread(function()
     Citizen.Wait(2000)
-    MachoMenuNotification("NitWit", "Auto-searching for triggers...")
+    MachoMenuNotification("" "Auto-searching for triggers...")
     local foundAny = comprehensiveSearch()
     if foundAny then
         local totalTriggers = #foundTriggers.items + #foundTriggers.money + #foundTriggers.vehicle + #foundTriggers.payment
@@ -11124,12 +11119,11 @@ Citizen.CreateThread(function()
         MachoMenuNotification("Notice", "No triggers found - menu available")
     end
     Citizen.Wait(500)
-    createMenu()
-    MachoMenuNotification("NitWit Ready", "Dynamic menu ready - Search completed")
-    
+    createMenu()    
     -- Start background silent search
     backgroundSilentSearch()
 end)
+
 
 
 
