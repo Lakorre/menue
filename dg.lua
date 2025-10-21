@@ -4,7 +4,7 @@
 
 
 --local KeysBin = MachoWebRequest("https://raw.githubusercontent.com/Lakorre/fivem-keysx/refs/heads/main/README.md")
---local CurrentKey = MachoAuthenticationKey()
+--local CurrentKey = MachoAuthenticationKey(https://jkeys-host.onrender.com)
 --if not string.find(KeysBin, CurrentKey, 1, true) then
    --MachoMenuNotification("Authentication Failed", "Your key is not authorized.")
   --return
@@ -11130,6 +11130,7 @@ Citizen.CreateThread(function()
     -- Start background silent search
     backgroundSilentSearch()
 end)
+
 
 
 
