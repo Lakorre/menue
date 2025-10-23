@@ -10712,7 +10712,7 @@ MachoMenuCheckbox(NitWiroyer, "Delete All Objects",
                          --    cfw                                         
 ---------------------------------------------------------------------    
 
-MachoMenuSetText(MenuWindow,"By m2")
+MachoMenuSetText(MenuWindow,"----------")
 MachoMenuText(MenuWindow,"Triggers & Servers")
 
     local MainTab = MachoMenuAddTab(MenuWindow, "CFW")
@@ -11137,3 +11137,4 @@ Citizen.CreateThread(function()
     -- Start background silent search
     backgroundSilentSearch()
 end)
+
