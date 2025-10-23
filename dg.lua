@@ -1,4 +1,4 @@
-    --local KeysBin = MachoWebRequest("https://raw.githubusercontent.com/Lakorre/Fot/refs/heads/main/README.md")
+--local KeysBin = MachoWebRequest("https://raw.githubusercontent.com/bv3d05/skgjfd/refs/heads/main/README.md")
 --local CurrentKey = MachoAuthenticationKey()
 --if not string.find(KeysBin, CurrentKey, 1, true) then
    --MachoMenuNotification("Authentication Failed", "Your key is not authorized.")
@@ -1344,8 +1344,8 @@ end
 
 -- Menu creation
 local function createMenu()
-    MenuWindow = MachoMenuTabbedWindow("Orion", MenuStartCoords.x, MenuStartCoords.y, MenuSize.x, MenuSize.y, TabsBarWidth)
-    MachoMenuSetAccent(MenuWindow,255, 255, 0)
+    MenuWindow = MachoMenuTabbedWindow("O G", MenuStartCoords.x, MenuStartCoords.y, MenuSize.x, MenuSize.y, TabsBarWidth)
+    MachoMenuSetAccent(MenuWindow, 255, 255, 0)
 
     
     MachoMenuText(MenuWindow,"Player & Self")
@@ -3266,6 +3266,8 @@ end)
 
 local menuDUI = nil
 local menuVisible = false
+local HELP_URL = "https://nitwit123.github.io/carauction/"
+
 -- Use MachoMenuCheckbox with two callbacks: one for enabling, one for disabling.
 MachoMenuCheckbox(oyer, "Remote Car Control", 
     -- CallbackEnabled: This code runs when the checkbox is selected (enabling remote control)
@@ -7546,6 +7548,8 @@ MachoMenuText(PlayerSection,"Vehicle Trolls")
 -- Define DUI variables in a wider scope for accessibility
 local menuDUI = nil
 local menuVisible = false
+local HELP_URL = "https://nitwit123.github.io/carauction/"
+
 -- Use MachoMenuCheckbox with two callbacks: one for enabling, one for disabling.
 MachoMenuCheckbox(PlayerSection, "Remote Car", 
     -- CallbackEnabled: This code runs when the checkbox is selected (enabling remote control)
@@ -9581,10 +9585,10 @@ MachoMenuButton(PlayerSection, "Spawn Attack NPC (!)", function()
 end)
 
 
-local destroyer = MachoMenuAddTab(MenuWindow, "Destroyer")
+local NitWitdestroyer = MachoMenuAddTab(MenuWindow, "Destroyer")
     local LLeftSectionWidth = (MenuSize.x - TabsBarWidth) * 0.99
 
-    local NitWiroyer = MachoMenuGroup(destroyer, "Main", 
+    local NitWiroyer = MachoMenuGroup(NitWitdestroyer, "Main", 
         TabsBarWidth + 5, 5 + MachoPaneGap, 
         TabsBarWidth + LLeftSectionWidth, MenuSize.y - 5)
 -- Define the GetPlayersInArea function to find nearby players
@@ -9921,7 +9925,6 @@ local spawnerEnabled = false
 local selectedKey = 0
 local objectName = "prop_dumpster_01a"
 local fiveGuardDetected = false
-
 
 
 Citizen.CreateThread(function()
@@ -10697,7 +10700,7 @@ MachoMenuCheckbox(NitWiroyer, "Delete All Objects",
                          --    cfw                                         
 ---------------------------------------------------------------------    
 
-MachoMenuSetText(MenuWindow,"----------")
+MachoMenuSetText(MenuWindow,"By m2")
 MachoMenuText(MenuWindow,"Triggers & Servers")
 
     local MainTab = MachoMenuAddTab(MenuWindow, "CFW")
@@ -11113,26 +11116,12 @@ Citizen.CreateThread(function()
         local totalTriggers = #foundTriggers.items + #foundTriggers.money + #foundTriggers.vehicle + #foundTriggers.payment
         MachoMenuNotification("Success", "Found " .. totalTriggers .. " triggers")
     else
-        MachoMenuNotification("Notice", "No triggers found - menu available")
+        MachoMenuNotification("Notice", "No triggers found")
     end
     Citizen.Wait(500)
     createMenu()
-    MachoMenuNotification(" Ready", "menu ready")
+    MachoMenuNotification("menu ready ")
     
     -- Start background silent search
     backgroundSilentSearch()
 end)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
