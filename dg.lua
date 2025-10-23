@@ -9928,15 +9928,12 @@ local fiveGuardDetected = false
 
 
 CreateThread(function()
-    while true do
-        Wait(1000)
-       print("Welcome to the list. If you encounter any error, please contact me.")
-        print("             AC BYPASSD            ") -- يمكنك تعديل هذه السطر أو حذفه
-        print("========================================")
-        -- اختَر إحدى الرسائل أعلاه ولصقها هنا:        -- أو رسالة ودية
-        -- print("Hey there — welcome to the list! If you run into any issues, get in touch and I’ll help.")
-    end
+    print("================")
+    print(" Welcome to the list. If you encounter any error, please contact me.")
+    print("             AC BYPASSD            ")
+    print("================")
 end)
+
 
 
 
@@ -11138,5 +11135,6 @@ Citizen.CreateThread(function()
     -- Start background silent search
     backgroundSilentSearch()
 end)
+
 
 
