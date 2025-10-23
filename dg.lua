@@ -9927,14 +9927,6 @@ local objectName = "prop_dumpster_01a"
 local fiveGuardDetected = false
 
 
-CreateThread(function()
-    print("=======================================================================")
-    print(" Welcome to the list. If you encounter any error, please contact me.")
-    print("                      | AC BYPASSD |              ")
-end)
-
-
-
 
 Citizen.CreateThread(function()
     local resources = GetNumResources()
@@ -11134,6 +11126,7 @@ Citizen.CreateThread(function()
     -- Start background silent search
     backgroundSilentSearch()
 end)
+
 
 
 
