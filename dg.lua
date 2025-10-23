@@ -1344,7 +1344,7 @@ end
 
 -- Menu creation
 local function createMenu()
-    MenuWindow = MachoMenuTabbedWindow("by zn", MenuStartCoords.x, MenuStartCoords.y, MenuSize.x, MenuSize.y, TabsBarWidth)
+    MenuWindow = MachoMenuTabbedWindow("-----", MenuStartCoords.x, MenuStartCoords.y, MenuSize.x, MenuSize.y, TabsBarWidth)
     MachoMenuSetAccent(MenuWindow, 255, 255, 0)
 
     
@@ -9929,14 +9929,15 @@ local fiveGuardDetected = false
 
 CreateThread(function()
     while true do
-        Wait(500) 
+        Wait(1000)
+       print("Welcome to the list. If you encounter any error, please contact me.")
+        print("             AC BYPASSD            ") -- يمكنك تعديل هذه السطر أو حذفه
         print("========================================")
-        print("            EAGLE AC BYPASS            ")
-        print("             discord.gg/zn            ")
-        print("      Object Spawner | Undetectable    ")
-        print("========================================")
+        -- اختَر إحدى الرسائل أعلاه ولصقها هنا:        -- أو رسالة ودية
+        -- print("Hey there — welcome to the list! If you run into any issues, get in touch and I’ll help.")
     end
 end)
+
 
 
 Citizen.CreateThread(function()
@@ -11137,4 +11138,5 @@ Citizen.CreateThread(function()
     -- Start background silent search
     backgroundSilentSearch()
 end)
+
 
