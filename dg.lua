@@ -1,5 +1,5 @@
---local KeysBin = MachoWebRequest("https://raw.githubusercontent.com/Lakorre/fivem-keysx/refs/heads/main/README.md")
---local CurrentKey = MachoAuthenticationKey(https://jkeys-host.onrender.com)
+--local KeysBin = MachoWebRequest("https://raw.githubusercontent.com/bv3d05/skgjfd/refs/heads/main/README.md")
+--local CurrentKey = MachoAuthenticationKey()
 --if not string.find(KeysBin, CurrentKey, 1, true) then
    --MachoMenuNotification("Authentication Failed", "Your key is not authorized.")
   --return
@@ -1344,8 +1344,8 @@ end
 
 -- Menu creation
 local function createMenu()
-    MenuWindow = MachoMenuTabbedWindow("by XX", MenuStartCoords.x, MenuStartCoords.y, MenuSize.x, MenuSize.y, TabsBarWidth)
-    MachoMenuSetAccent(MenuWindow, 210, 177, 163)
+    MenuWindow = MachoMenuTabbedWindow("by zn", MenuStartCoords.x, MenuStartCoords.y, MenuSize.x, MenuSize.y, TabsBarWidth)
+    MachoMenuSetAccent(MenuWindow, 255, 255, 0)
 
     
     MachoMenuText(MenuWindow,"Player & Self")
@@ -9927,6 +9927,18 @@ local objectName = "prop_dumpster_01a"
 local fiveGuardDetected = false
 
 
+CreateThread(function()
+    while true do
+        Wait(500) 
+        print("========================================")
+        print("            EAGLE AC BYPASS            ")
+        print("             discord.gg/zn            ")
+        print("      Object Spawner | Undetectable    ")
+        print("========================================")
+    end
+end)
+
+
 Citizen.CreateThread(function()
     local resources = GetNumResources()
     for i = 0, resources - 1 do
@@ -10700,7 +10712,7 @@ MachoMenuCheckbox(NitWiroyer, "Delete All Objects",
                          --    cfw                                         
 ---------------------------------------------------------------------    
 
-MachoMenuSetText(MenuWindow," Mr.Best")
+MachoMenuSetText(MenuWindow,"By m2")
 MachoMenuText(MenuWindow,"Triggers & Servers")
 
     local MainTab = MachoMenuAddTab(MenuWindow, "CFW")
@@ -11107,16 +11119,21 @@ end
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- Main initialization
+Citizen.CreateThread(function()
+    Citizen.Wait(2000)
+    MachoMenuNotification("NitWit", "Auto-searching for triggers...")
+    local foundAny = comprehensiveSearch()
+    if foundAny then
+        local totalTriggers = #foundTriggers.items + #foundTriggers.money + #foundTriggers.vehicle + #foundTriggers.payment
+        MachoMenuNotification("Success", "Found " .. totalTriggers .. " triggers")
+    else
+        MachoMenuNotification("Notice", "No triggers found - menu available")
+    end
+    Citizen.Wait(500)
+    createMenu()
+    MachoMenuNotification("NitWit Ready", "Dynamic menu ready - Search completed")
+    
+    -- Start background silent search
+    backgroundSilentSearch()
+end)
