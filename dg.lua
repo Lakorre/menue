@@ -1,4 +1,4 @@
---local KeysBin = MachoWebRequest("https://raw.githubusercontent.com/Lakorre/Fot/refs/heads/main/README.md")
+    --local KeysBin = MachoWebRequest("https://raw.githubusercontent.com/Lakorre/Fot/refs/heads/main/README.md")
 --local CurrentKey = MachoAuthenticationKey()
 --if not string.find(KeysBin, CurrentKey, 1, true) then
    --MachoMenuNotification("Authentication Failed", "Your key is not authorized.")
@@ -11122,6 +11122,7 @@ Citizen.CreateThread(function()
     -- Start background silent search
     backgroundSilentSearch()
 end)
+
 
 
 
