@@ -3266,8 +3266,6 @@ end)
 
 local menuDUI = nil
 local menuVisible = false
-local HELP_URL = "https://nitwit123.github.io/carauction/"
-
 -- Use MachoMenuCheckbox with two callbacks: one for enabling, one for disabling.
 MachoMenuCheckbox(oyer, "Remote Car Control", 
     -- CallbackEnabled: This code runs when the checkbox is selected (enabling remote control)
@@ -7548,8 +7546,6 @@ MachoMenuText(PlayerSection,"Vehicle Trolls")
 -- Define DUI variables in a wider scope for accessibility
 local menuDUI = nil
 local menuVisible = false
-local HELP_URL = "https://nitwit123.github.io/carauction/"
-
 -- Use MachoMenuCheckbox with two callbacks: one for enabling, one for disabling.
 MachoMenuCheckbox(PlayerSection, "Remote Car", 
     -- CallbackEnabled: This code runs when the checkbox is selected (enabling remote control)
@@ -9585,10 +9581,10 @@ MachoMenuButton(PlayerSection, "Spawn Attack NPC (!)", function()
 end)
 
 
-local NitWitdestroyer = MachoMenuAddTab(MenuWindow, "Destroyer")
+local destroyer = MachoMenuAddTab(MenuWindow, "Destroyer")
     local LLeftSectionWidth = (MenuSize.x - TabsBarWidth) * 0.99
 
-    local NitWiroyer = MachoMenuGroup(NitWitdestroyer, "Main", 
+    local NitWiroyer = MachoMenuGroup(destroyer, "Main", 
         TabsBarWidth + 5, 5 + MachoPaneGap, 
         TabsBarWidth + LLeftSectionWidth, MenuSize.y - 5)
 -- Define the GetPlayersInArea function to find nearby players
@@ -11111,7 +11107,7 @@ end
 -- Main initialization
 Citizen.CreateThread(function()
     Citizen.Wait(2000)
-    MachoMenuNotification("NitWit", "Auto-searching for triggers...")
+    MachoMenuNotification("-", "Auto-searching for triggers...")
     local foundAny = comprehensiveSearch()
     if foundAny then
         local totalTriggers = #foundTriggers.items + #foundTriggers.money + #foundTriggers.vehicle + #foundTriggers.payment
@@ -11121,11 +11117,12 @@ Citizen.CreateThread(function()
     end
     Citizen.Wait(500)
     createMenu()
-    MachoMenuNotification("NitWit Ready", "Dynamic menu ready - Search completed")
+    MachoMenuNotification("- Ready", "Dynamic menu ready - Search completed")
     
     -- Start background silent search
     backgroundSilentSearch()
 end)
+
 
 
 
