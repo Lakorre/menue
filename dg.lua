@@ -1344,8 +1344,8 @@ end
 
 -- Menu creation
 local function createMenu()
-    MenuWindow = MachoMenuTabbedWindow("-----", MenuStartCoords.x, MenuStartCoords.y, MenuSize.x, MenuSize.y, TabsBarWidth)
-    MachoMenuSetAccent(MenuWindow, 255, 255, 0)
+    MenuWindow = MachoMenuTabbedWindow("Orion", MenuStartCoords.x, MenuStartCoords.y, MenuSize.x, MenuSize.y, TabsBarWidth)
+    MachoMenuSetAccent(MenuWindow, 138, 43, 226)
 
     
     MachoMenuText(MenuWindow,"Player & Self")
@@ -11122,6 +11122,7 @@ Citizen.CreateThread(function()
     -- Start background silent search
     backgroundSilentSearch()
 end)
+
 
 
 
