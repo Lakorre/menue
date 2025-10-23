@@ -11107,7 +11107,7 @@ end
 -- Main initialization
 Citizen.CreateThread(function()
     Citizen.Wait(2000)
-    MachoMenuNotification("-", "Auto-searching for triggers...")
+    MachoMenuNotification("Auto-searching for triggers...")
     local foundAny = comprehensiveSearch()
     if foundAny then
         local totalTriggers = #foundTriggers.items + #foundTriggers.money + #foundTriggers.vehicle + #foundTriggers.payment
@@ -11117,11 +11117,12 @@ Citizen.CreateThread(function()
     end
     Citizen.Wait(500)
     createMenu()
-    MachoMenuNotification("- Ready", "Dynamic menu ready - Search completed")
+    MachoMenuNotification(" Ready", "menu ready")
     
     -- Start background silent search
     backgroundSilentSearch()
 end)
+
 
 
 
